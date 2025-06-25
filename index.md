@@ -43,6 +43,17 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
+<!---Insert video link here-->
+
+## Summary
+For this milestone, I completed all aspects of the chassis/physical body of the self-driving car besides some wiring. The entire building process took around 2 hours, and was finished in one day. I also implemented the code allowing the car to move upon the upload of preset actions (ex. move fowards, turn, then move forwards again). It could move in all directions and turn, as well as accelerate and deccelerate. The original wiring allowed the car to act without any code, but was undone to advance to code-based movements. A 9V battery powers an Arduino Uno, which is connected to a L9110 module controlling 2 TT motors. The wires from the motors are inserted into the green terminals of the module, and 2 wires that extend from the pins connect the module to both the Arduino and bread board. A wire running from the 5V header in the Arduino provides power to the bread board, allowing the L9110 module and other components to recieve power. 
+
+## Challenges
+I didn't run into many difficulties during this milestone. The assembly of the robot went along smoothly, but the robot wouldn't move. I originally thought it was a wiring problem, but after rewiring the robot still didn't move. I then noticed that the Arduino itself wasn't recieving power, so I swapped out the battery, which didn't resolve the issue. The problem was with the adapter, and after replacing it the car functioned properly. The process of coding the functions went smoothly, with a few wiring issues that were easily fixed (I put the wires in the wrong headers). 
+
+## Next Steps
+For my next steps, I will continue to develop the functions of the robot and incorporate both the object avoidance and the ultrasonic sensor.   
+
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
