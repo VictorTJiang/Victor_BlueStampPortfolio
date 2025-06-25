@@ -101,6 +101,26 @@ I enjoy playing arcade games, so I thought it would be nice to have a portable o
 ![Headstone Image](arcadegame.jpg)
 Figure x: A picture showing the retro arcade console with labeled components. 
 
+## Components Used
+ - Buzzer
+ - Electric Capacitor
+ - Micro USB
+ - Power Cable
+ - Self-Switch
+ - Self-Switch Cap
+ - Digitron Display
+ - IC Chip
+ - LED Dot Matrix Module
+ - Button
+ - Button Cap
+ - PCB
+ - 3x5mm Screw
+ - 3x8mm Screw
+ - 3x9mm Copper Column
+ - 5+6mm Hexagonal Column
+ - Battery Case
+ - Acrylic Shell
+
 ## Challenges
 I learned soldering the same day I completed the starter project, so it took a while to get used to (almost the whole project was soldering). I burned myself on accident, but got the hang of it by time I finished the starter. 
 
