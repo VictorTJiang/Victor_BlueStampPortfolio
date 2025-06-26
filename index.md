@@ -42,6 +42,9 @@ Figure x: Final wiring diagram of the robot implementing all components
 ## Challenges
 This milestone wasn't particularly difficult, but there was a major problem with the motor drive module. Whichever motor was connected to the green terminals on the right malfunctioned: they were significantly slower than the other one, and often required me to pick it up and spin the wheel a few times to start it. In addition, the motor randomly stopped spinning in the middle of running. I originally thought it might've been a problem with the motor, so I swapped it out for a new one, but that didn't fix the problem. I then swapped the pins of the two motors (the right motor pins went in the left green terminals, the left motor pins went in the right green terminals), and I discovered that the motor connected to the right green terminals wouldn't properly spin. This problem was fixed upon changing out the motor drive module. 
 
+## Next Steps
+The robot doesn't go fully straight forwards as of now: it slightly curves to the left. I'll be fixing this issue for my next step, as well as start implementing my modifications. 
+
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
 - What has been surprising about the project so far
