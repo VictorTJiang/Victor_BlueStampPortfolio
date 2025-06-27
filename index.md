@@ -37,7 +37,7 @@ For this milestone, I implemented multiple different functions of the robot. The
 
 ![Headstone Image](finalwiringstuff.png)
 
-Figure x: The final wiring diagram of the robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. 
+Figure x: The final wiring diagram of the robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
 
 ![Headstone Image](ir_remote.png)
 
@@ -63,7 +63,7 @@ For this milestone, I completed all aspects of the chassis/physical body of the 
 
 ![Headstone Image](basicwiringstuff.png)
 
-Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions.   
+Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
 
 ## Challenges
 I didn't run into many difficulties during this milestone. The assembly of the robot went along smoothly, but the robot wouldn't move. I originally thought it was a wiring problem, but after rewiring the robot still didn't move. I then noticed that the Arduino itself wasn't recieving power, so I swapped out the battery, which didn't resolve the issue. The problem was with the adapter, and after replacing it the car functioned properly. The process of coding the functions went smoothly, with a few wiring issues that were easily fixed (I put the wires in the wrong headers). 
