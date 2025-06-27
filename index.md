@@ -61,7 +61,7 @@ For your second milestone, explain what you've worked on since your previous mil
 ## Summary
 For this milestone, I completed all aspects of the chassis/physical body of the self-driving car besides some wiring. The entire building process took around 2 hours, and was finished in one day. I also implemented the code allowing the car to move upon uploading preset actions (ex. move fowards, turn, then move forwards again) to the Arduino. The car can move in all directions and turn, as well as accelerate and deccelerate. The original wiring allowed the car to act without any code, but was undone to advance to code-based movements. A 9V battery powers an Arduino Uno (the "brain" where code is uploaded), which is connected to a L9110 module controlling 2 TT motors. The wires from the motors are inserted into the green terminals of the module, and 2 wires that extend from the pins connect the module to both the Arduino and bread board (a white board that helps power the robot's components). A wire running from the 5V header/slot in the Arduino provides power to the bread board, allowing the L9110 module and other components to recieve power and move the robot. 
 
-![Headstone Image](basicwiring.png)
+![Headstone Image](basicwiringstuff.png)
 
 Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions.   
 
