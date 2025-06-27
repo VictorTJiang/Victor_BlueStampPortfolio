@@ -37,7 +37,7 @@ For this milestone, I implemented multiple different functions of the robot. The
 
 ![Headstone Image](circuit_image.png)
 
-Figure x: Final wiring diagram of the robot implementing all components
+Figure x: The final wiring diagram of the robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). 
 
 ## Challenges
 This milestone wasn't particularly difficult, but there was a major problem with the motor drive module. Whichever motor was connected to the green terminals on the right malfunctioned: they were significantly slower than the other one, and often required me to pick it up and spin the wheel a few times to start it. In addition, the motor randomly stopped spinning in the middle of running. I originally thought it might've been a problem with the motor, so I swapped it out for a new one, but that didn't fix the problem. I then swapped the pins of the two motors (the right motor pins went in the left green terminals, the left motor pins went in the right green terminals), and I discovered that the motor connected to the right green terminals wouldn't properly spin. This problem was fixed upon changing out the motor drive module. 
