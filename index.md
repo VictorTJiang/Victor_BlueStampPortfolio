@@ -112,7 +112,7 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 [Link to the Starter Project](https://www.amazon.com/Electronic-Soldering-Practice-Comfortable-VOGURTIME/dp/B094QRRHC2/ref=sr_1_3?crid=12C0SOV36FG6M&dib=eyJ2IjoiMSJ9.Prj06eg0mzBHrfW8zuFr43Ott4t2wUOVBo8A8bYw0PqFZRlOEmgR5YwhMy7jXrdI2HlBjVttnEyYLz5CP684SzJyHmVMBp25vNna9o8wjV-df55ilTgj0xMy1CiRwkcnu6xqacZ3JUPlq8C3mQJwmEtoeokndNqpwpdkZBQMplM9vg3M-cfB0xM_nXdjeqHQ3bB707ehrzX6Llp-Euu3CTFzF8wgEqhPwo6RCvzbo5M.yyrFg8EXJr9BL5cOgZF551-8cIl91p0MSy8nGiilcpU&dib_tag=se&keywords=arcade%2Bsolder%2Bproject&qid=1717994267&sprefix=arcade%2Bsolder%2Bprojec%2Caps%2C147&sr=8-3&th=1)
 
 ## Summary
-I enjoy playing arcade games, so I thought it would be nice to have a portable one of my own. With this console, I am able to swap between 4 different games to play using the left and right arrows, interact with/play the game with the up and down arrows, start games with the green button and end games with the yellow button. It can powered by getting plugged into a computer via a USB cord or through batteries. The game is displayed through 2 dot matrices that flash individual lights to form patterns for a game. 
+I enjoy playing arcade games, so I thought it would be nice to have a portable one of my own. With this console, I am able to swap between 4 different games to play using the left and right buttons, interact with/play the game with the up and down buttons, start games with the green button and end games with the yellow button. It can be powered by getting plugged into a computer via a USB cord or through batteries. The game is displayed through 2 dot matrices that flash individual lights to form patterns for a game. 
 
 ![Headstone Image](arcadegame.jpg)
 Figure x: A picture showing the retro arcade console with labeled components. 
@@ -138,7 +138,7 @@ Figure x: A picture showing the retro arcade console with labeled components.
  - Acrylic Shell
 
 ## Challenges
-I learned soldering the same day I completed the starter project, so it took a while to get used to (almost the whole project was soldering). I burned myself on accident, but got the hang of it by time I finished the starter. 
+I learned soldering the same day I completed the starter project, so it took a while to get used to (almost the whole project was soldering). I burned myself by accident, but got the hang of it by the time I finished the starter. 
 
 ## Next Step
 For my next step, I'll start the process of building the chassis of the self driving car. 
