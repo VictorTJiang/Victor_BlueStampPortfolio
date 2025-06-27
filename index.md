@@ -115,6 +115,7 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 I enjoy playing arcade games, so I thought it would be nice to have a portable one of my own. With this console, I am able to swap between 4 different games to play using the left and right buttons, interact with/play the game with the up and down buttons, start games with the green button and end games with the yellow button. It can be powered by getting plugged into a computer via a USB cord or through batteries. The game is displayed through 2 dot matrices that flash individual lights to form patterns for a game. 
 
 ![Headstone Image](diagramArcade.png)
+
 Figure x: A picture showing the retro arcade console with labeled components. 
 
 ## Components Used
