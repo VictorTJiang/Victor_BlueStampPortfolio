@@ -41,7 +41,17 @@ Figure x: The final wiring diagram of the robot implementing all components. Red
 
 ![Headstone Image](ir_remote.png)
 
-Figure x: The remote controller used to control the movements of the car. The + increases speed, the - decreases speed, 1 and 3 make the car turn front left and front right, 2 makes the car go forwards, 4 and 6 make the car spin left and right in place, 5 makes the car stop moving, 7 and 9 make the car turn back left and back right, and 8 makes the car go backwards. The button with the twisted arrows makes the car follow a line, U/SD makes the car go into autonomous mode, and lastly EQ makes the car follow your hand. 
+Figure x: The remote controller used to control the movements of the car. 
++, -: increase and decrease speed
+1, 3: turn forwards left and forwards right
+2: go forwards
+4, 6: spin left and right in place
+5: brake
+7, 9: turn backwards left and backwards right
+8: go backwards
+Twisted arrows: line following mode
+U/SD: autonomous mode
+EQ: hand following mode
 
 ## Challenges
 This milestone wasn't particularly difficult, but there was a major problem with the motor drive module. Whichever motor was connected to the green terminals on the right malfunctioned: they were significantly slower than the other one, and often required me to pick it up and spin the wheel a few times to start it. In addition, the motor randomly stopped spinning in the middle of running. I originally thought it might've been a problem with the motor, so I swapped it out for a new one, but that didn't fix the problem. I then swapped the pins of the two motors (the right motor pins went in the left green terminals, the left motor pins went in the right green terminals), and I discovered that the motor connected to the right green terminals wouldn't properly spin. This problem was fixed upon changing out the motor drive module. 
@@ -59,7 +69,10 @@ For your second milestone, explain what you've worked on since your previous mil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GWJhXuCSVXM?si=3m_VEQC6RZUU1Vw6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
-For this milestone, I completed all aspects of the chassis/physical body of the self-driving car besides some wiring. The entire building process took around 2 hours, and was finished in one day. I also implemented the code allowing the car to move upon uploading preset actions (ex. move fowards, turn, then move forwards again) to the Arduino. The car can move in all directions and turn, as well as accelerate and deccelerate. The original wiring allowed the car to act without any code, but was undone to advance to code-based movements. A 9V battery powers an Arduino Uno (the "brain" where code is uploaded), which is connected to a L9110 module controlling 2 TT motors. The wires from the motors are inserted into the green terminals of the module, and 2 wires that extend from the pins connect the module to both the Arduino and bread board (a white board that helps power the robot's components). A wire running from the 5V header/slot in the Arduino provides power to the bread board, allowing the L9110 module and other components to recieve power and move the robot. 
+For this milestone, I completed all aspects of the physical body of the self-driving car. The entire building process took around two hours, and was finished in one day. I also implemented the code allowing the car to move through set instructions. It can move in all directions and turn, as well as accelerate and deccelerate. 
+
+## Technical Breakdown
+A 9V battery acts as the power source of the car, and is plugged into the Arduino Uno. The Arduino is the "brain" of the car, where code is uploaded. The L9110 motor driver connects the Arduino to two TT motors that move the wheels of the car. The motor driver helps the Arduino precisely control the actions of those motors. Lastly, both the Arduino and the motor driver are connected to the bread board, which acts as a hub for all connecting wires and delivers power to the robot's components. 
 
 ![Headstone Image](basicwiringstuff.png)
 
