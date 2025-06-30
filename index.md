@@ -33,10 +33,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cNyybMMJYjY?si=IBDuVa3nuL4FwkQV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
-For this milestone, I implemented multiple different functions of the robot. The robot car it now able to follow a black line on the ground using the line tracking module. 
+For this milestone, I implemented multiple different functions of the robot car. It is now able to follow a black line on the ground using the line tracking module. The car can also use the obstacle avoidance modules to follow my hand. By working with the ultrasonic sensor to detect and avoid objects, the modules also allow the robot to operate fully autonomously. Lastly, the robot's movements can now be controlled through button presses on an IR remote. 
 
 ## Technical Breakdown
-The module detects the color of the floor underneath the robot, and returns a number based on the color (0 for white, 1 for black). If 1 is returned, the robot turns forwards right. If 0 is returned, the robot turns forwards left. The end result is the car will zigzag along and follow the line. 
+The line tracking module detects the color of the floor underneath the robot, and returns a number based on the color (0 for white, 1 for black). If 1 is returned, the robot turns forwards right. If 0 is returned, the robot turns forwards left. The end result is the car will zigzag along and follow the line. 
 
 The car can also detect distance and avoid obstacles using the obstacle avoidance modules and ultrasonic sensor. The obstacle avoidance modules send a signal if they detect objects ahead, and the range of detection can be changed by rotating a potentiometer on the module. Using the signal, you can code the robot to turn away from the obstacle or completely stop. However, due to the short detection range on the obstacle avoidance modules, they often do not send the signal to the Arduino in time to avoid the obstacle. The ultrasnoic sensor has a much longer range, and can therefore be more effective for avoiding obstacles. The sensor sends ultrasonic waves ahead, and records how long it takes for the waves to rebound off an object in order to calculate the distance between the sensor and that object. Using these tools, the robot is able to go fully autonomous (self-piloting); when it detects an object, it turns and goes in a different direction. 
 
@@ -67,7 +67,7 @@ EQ: hand following mode
 Figure x: The robot at the time of the second milestone
 
 ## Challenges
-There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin. This problem was fixed upon changing out the motor drive module. 
+There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin, and resolved it after replacing the motor driver. 
 
 ## Next Steps
 The robot does not go fully straight forwards as of now: it slightly curves to the left. I will be fixing this issue for my next step, as well as start implementing my modifications. 
