@@ -62,6 +62,10 @@ Twisted arrows: line following mode
 U/SD: autonomous mode
 EQ: hand following mode
 
+![Headstone Image](twowheeldriverendition.png)
+
+Figure x: The two wheel drive model of the robot
+
 ## Challenges
 There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin. This problem was fixed upon changing out the motor drive module. 
 
