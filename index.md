@@ -38,7 +38,7 @@ For this milestone, I implemented multiple different functions of the robot. The
 ## Technical Breakdown
 The module detects the color of the floor underneath the robot, and returns a number based on the color (0 for white, 1 for black). If 1 is returned, the robot turns forwards right. If 0 is returned, the robot turns forwards left. The end result is the car will zigzag along and follow the line. 
 
-The car can also detect distance and avoid obstacles using the obstacle avoidance modules and ultrasonic sensor. The obstacle avoidance modules send a signal if they detect objects ahead, and the range of detection can be changed by rotating a potentiometer on the module. Using the signal, you can code the robot to turn away from the obstacle or completely stop. However, due to the short detection range on the obstacle avoidance modules, they often don't send the signal to the Arduino in time to avoid the obstacle. The ultrasnoic sensor has a much longer range, and can therefore be more effective for avoiding obstacles. The sensor sends ultrasonic waves ahead, and records how long it takes for the waves to rebound off an object in order to calculate the distance between the sensor and that object. Using these tools, the robot is able to go fully autonomous (self-piloting); when it detects an object, it turns and goes in a different direction. 
+The car can also detect distance and avoid obstacles using the obstacle avoidance modules and ultrasonic sensor. The obstacle avoidance modules send a signal if they detect objects ahead, and the range of detection can be changed by rotating a potentiometer on the module. Using the signal, you can code the robot to turn away from the obstacle or completely stop. However, due to the short detection range on the obstacle avoidance modules, they often do not send the signal to the Arduino in time to avoid the obstacle. The ultrasnoic sensor has a much longer range, and can therefore be more effective for avoiding obstacles. The sensor sends ultrasonic waves ahead, and records how long it takes for the waves to rebound off an object in order to calculate the distance between the sensor and that object. Using these tools, the robot is able to go fully autonomous (self-piloting); when it detects an object, it turns and goes in a different direction. 
 
 A different function that utilizes the obstacle avoidance module is hand-following. The modules, upon detection of an object, turn and go towards it instead of away, allowing the car to follow the movements of my hand. 
 
@@ -63,10 +63,10 @@ U/SD: autonomous mode
 EQ: hand following mode
 
 ## Challenges
-There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often required me to pick the car up and spin the corresponding wheel a few times to start the motor. In addition, the motor randomly stopped spinning in the middle of running. I originally thought it might have been a problem with the motor, so I swapped it out for a new one, but that didn't fix the problem. I then swapped the pins of the two motors (the right motor pins went in the left green terminals, the left motor pins went in the right green terminals), and I discovered that the motor connected to the right green terminals wouldn't properly spin. This problem was fixed upon changing out the motor drive module. 
+There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin. This problem was fixed upon changing out the motor drive module. 
 
 ## Next Steps
-The robot doesn't go fully straight forwards as of now: it slightly curves to the left. I'll be fixing this issue for my next step, as well as start implementing my modifications. 
+The robot does not go fully straight forwards as of now: it slightly curves to the left. I will be fixing this issue for my next step, as well as start implementing my modifications. 
 
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
@@ -81,14 +81,14 @@ For your second milestone, explain what you've worked on since your previous mil
 For this milestone, I completed all aspects of the physical body of the self-driving car. The entire building process took around two hours, and was finished in one day. I also implemented the code allowing the car to move through set instructions. It can move in all directions and turn, as well as accelerate and deccelerate. 
 
 ## Technical Breakdown
-A 9V battery acts as the power source of the car, and is plugged into the Arduino Uno. The Arduino is the "brain" of the car, where code is uploaded. The L9110 motor driver connects the Arduino to two TT motors that move the wheels of the car. The motor driver helps the Arduino precisely control the actions of those motors. Lastly, both the Arduino and the motor driver are connected to the bread board, which acts as a hub for all connecting wires and delivers power to the robot's components. 
+A 9V battery acts as the power source of the car, and is plugged into the Arduino Uno. The Arduino is the "brain" of the car, where code is uploaded. The L9110 motor driver connects the Arduino to two TT motors that move the wheels of the car. The motor driver helps the Arduino precisely control the actions of those motors. Lastly, both the Arduino and the motor driver are connected to the bread board, which acts as a hub for all connecting wires and delivers power to the robots components. 
 
 ![Headstone Image](basicwiringstuff.png)
 
 Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
 
 ## Challenges
-I didn't run into many difficulties during this milestone. The assembly of the robot went along smoothly, but the robot wouldn't move. I originally thought it was a wiring problem, but after rewiring the robot still didn't move. I then noticed that the Arduino itself wasn't recieving power, so I swapped out the battery, which didn't resolve the issue. The problem was with the adapter, and after replacing it the car functioned properly. The process of coding the functions went smoothly, with a few wiring issues that were easily fixed (I put the wires in the wrong headers). 
+The assembly of the robot car went along smoothly, but the robot would not move. I originally thought it was a wiring problem, but after redoing the wiring it still would not move. I then noticed that the Arduino itself was not recieving power, so I swapped out the battery. When that still did not resolve the issue, I discovered that the problem was with the adapter. After replacing it the car functioned properly. 
 
 ## Next Steps
 For my next steps, I will continue to develop the functions of the robot and incorporate both the object avoidance and the ultrasonic sensor.   
@@ -168,4 +168,4 @@ Figure x: A picture showing the retro arcade console with labeled components.
 I learned soldering the same day I completed the starter project, so it took a while to get used to (almost the whole project was soldering). I burned myself by accident, but got the hang of it by the time I finished the starter. 
 
 ## Next Step
-For my next step, I'll start the process of building the chassis of the self driving car and coding its movement. 
+For my next step, I will start the process of building the chassis of the self driving car and coding its movement. 
