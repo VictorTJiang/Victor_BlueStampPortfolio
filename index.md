@@ -87,7 +87,7 @@ For this milestone, I completed all aspects of the physical body of the self-dri
 ## Technical Breakdown
 A 9V battery acts as the power source of the car, and is plugged into the Arduino Uno. The Arduino is the "brain" of the car, where code is uploaded. The L9110 motor driver connects the Arduino to two TT motors that move the wheels of the car. The motor driver helps the Arduino precisely control the actions of those motors. Lastly, both the Arduino and the motor driver are connected to the bread board, which acts as a hub for all connecting wires and delivers power to the robots components. 
 
-![Headstone Image](basicwiringstuff.png)
+![Headstone Image](basictwowiringdrivecircuiting.png)
 
 Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
 
