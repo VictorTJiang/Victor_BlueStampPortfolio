@@ -44,7 +44,7 @@ A different function that utilizes the obstacle avoidance module is hand-followi
 
 The most important part of this milestone was the IR remote controller. It sends a signal to an IR reciever on the bread board of the car, which then transmits a signal to the Arduino, allowing it to perform a task based on the button pressed. The remote is encoded with basic movements (move forwards, move backwards, brake, turn left, turn right, etc) along with the previously mentioned functions (autonomous, line and hand following, etc). 
 
-![Headstone Image](finalwiringstuff.png)
+![Headstone Image](twowheeldrivecirccuiting.png)
 
 Figure x: The final wiring diagram of the robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
 
