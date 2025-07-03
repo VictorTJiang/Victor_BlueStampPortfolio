@@ -1,21 +1,21 @@
 # Self Driving Car - 227
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!`
 
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
+<!--You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
+```HTML -->
 <!--- This is an HTML comment in Markdown -->
 <!--- Anything between these symbols will not render on the published site -->
 ```
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Victor J | Stratford Preparatory Blackford | Robotics | Incoming Sophomore
+| Victor J | Stratford Preparatory Blackford | Robotics | Incoming Sophomore |
 
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
+<!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**-->
 
 ![Headstone Image](Headshot.png)
   
-# Final Milestone
+<!-- # Final Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -28,7 +28,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you hope to learn in the future after everything you've learned at BSE
 
 
-
+-->
 # Second Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cNyybMMJYjY?si=IBDuVa3nuL4FwkQV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -97,11 +97,11 @@ The assembly of the robot car went along smoothly, but the robot would not move.
 ## Next Steps
 For my next steps, I will continue to develop the functions of the robot and incorporate both the object avoidance and the ultrasonic sensor.   
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-# Schematics 
+<!--# Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
@@ -129,16 +129,16 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Kit | A kit containing all the componenets required for the base project | $59.99 | <a href="https://www.amazon.com/dp/B0B778L1DZ?&linkCode=sl1&tag=sunfounder03-20&linkId=6e7fba81fb2756b979943c012bd5534f&language=en_US&ref_=as_li_ss_tl"> Link </a> |
 | MPU 6050 Accelerometer | A part that helps the robot move straight | $6.99 | <a href="https://www.amazon.com/HiLetgo-MPU-6050-Accelerometer-Gyroscope-Converter/dp/B01DK83ZYQ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&smid=A30QSGOJR8LMXA&th=1"> Link </a> |
 | Four Wheel Drive Chassis | A chassis with four wheels instead of two | $19.99 | <a href="https://www.amazon.com/dp/B07DNXBFQN?ref=fed_asin_title&th=1"> Link </a> |
-| L298N Motor Driver | A larger motor driver to accomodate for the four wheels | $6.19 | <a href="https://www.amazon.com/Controller-H-Bridge-Stepper-Mega2560-Duemilanove/dp/B01CC8XI60/ref=sr_1_7?crid=1BAI6BVC7EZT1&dib=eyJ2IjoiMSJ9.CQC_VIuB-cAqWBjjWHcTLG2iMTz34VQJc4L2Artga0c-WML8URvFhecpoiOUDZfdYjpsvFdxaYFocpAuHCUjHyzvNghIObKKG3AF_iFunVXvMMKF-5vV2APjEc7axP5rd8dEyBMS5aGh0w6Q_tCT0DGRKedDytpVCRfD1Yv4X-RawDXAfDDqxm3RZTbiANC2SX76o68rD0NFIqcIUc8GrIdRni7ff_whc0z2X6T6hLL5vff9_MvlT9eTYLXPeTeWmUvaev1PB1ejlGlCgKMvYu67yEwEuJVKjurVDnIiGGw.59gy305rf2H0nUyhpftDOSkOS--XSMWnbXWXW1V0HN8&dib_tag=se&qid=1751396497&s=electronics&sprefix=l298n+motor+driv%2Celectronics%2C125&sr=1-7"> Link </a> |
+| L9110 Motor Driver | An additional motor drive to operate the other 2 wheels | $6.45 | <a href="https://shop.barnabasrobotics.com/products/l9110s-dual-dc-driver-and-stepper-driver-board?variant=32688609263709&country=US&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOoqRC9t3xj7ZfaZf13zgFNdjdNwvB9EqRLH-A-V_WblX0sC_o1M5DXs&gQT=2"> Link </a> |
 
-# Other Resources/Examples
+<!--# Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
 To watch the BSE tutorial on how to create a portfolio, click here.
-
+-->
 # Starter Project: Retro Arcade Console - 005
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YPPs7FFykw0?si=X7m8YlcUn64qInDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
