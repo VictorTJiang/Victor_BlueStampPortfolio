@@ -1,6 +1,6 @@
 # Self Driving Car - 227
-Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!`
-
+<!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!`-->
+Self-piloting cars are the future of transportation, and are already being implemented by companies such as Waymo. They have the potential to greatly reduce the chances of a car accident, and can provide safe rides for everyone. For my project, I built a miniaturized version of the self-driving car that can operate with human control by detecting obstacles and changing their path accordingly. It can also be controlled through an IR remote, which is encoded with multiple functions ranging from basic movement to hand-following and full autonomous mode. 
 <!--You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 ```HTML -->
 <!--- This is an HTML comment in Markdown -->
