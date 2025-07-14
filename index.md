@@ -72,11 +72,11 @@ There was a major problem with the motor driver. The motor connected to the gree
 ## Next Steps
 The robot does not go fully straight forwards as of now: it slightly curves to the left. I will be fixing this issue for my next step, as well as start implementing my modifications. 
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
+<!--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+- What needs to be completed before your final milestone -->
 
 # First Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GWJhXuCSVXM?si=3m_VEQC6RZUU1Vw6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
