@@ -50,20 +50,30 @@ The most important part of this milestone was the IR remote controller. It sends
 
 ![Headstone Image](twowheeldrivecirccuiting.png)
 
-Figure 2 The final wiring diagram of the two wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
+Figure 2: The final wiring diagram of the two wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
 
 ![Headstone Image](ir_remote.png)
 
 Figure 3: The remote controller used to control the movements of the car. 
+
 +, -: increase and decrease speed
+
 1, 3: turn forwards left and forwards right
+
 2: go forwards
+
 4, 6: spin left and right in place
+
 5: brake
+
 7, 9: turn backwards left and backwards right
+
 8: go backwards
+
 Twisted arrows: line following mode
+
 U/SD: autonomous mode
+
 EQ: hand following mode
 
 ![Headstone Image](twowheeldriverendition.png)
