@@ -19,11 +19,13 @@ Self-piloting cars are the future of transportation, and are already being imple
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7szSlxqjNI4?si=QJAD192xvliJND-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
-For my final milestone, I transferred all components of the robot from a two wheel base to a four wheel drive chassis. This solves the previous problem of the robot not driving straight: with only two wheels it is easy to notice the different in motor speeds, but with four the difference is negligible. In addition, with four wheels, the robot now goes much faster than before. 
+For my final milestone, I transferred all components of the robot from a two wheel base to a 4 wheel drive chassis. This solves the previous problem of the robot not driving straight: with only 2 wheels it is easy to notice the different in motor speeds, but with 4 the difference is negligible. In addition, with 4 wheels, the robot now goes much faster than before. 
 
 ## Technical Breakdown
-The layout of the wires and components is similar to that of the two wheel drive base. The main difference is that there are now four TT motors and 2 L9110 motor drivers, with each driver controlling two motors. 
+The layout of the wires and components is similar to that of the 2 wheel drive base. The main difference is that there are now 4 TT motors and 2 L9110 motor drivers, with each driver controlling two motors. The 9V battery that used to power both the Arduino and motor driver no longer provides enough charge to power 2 motor drivers, so they are now powered using a 5 pack of 1.5V AA batteries. 
 
+![Headstone Image](Headshot.png)
+Figure x: 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
