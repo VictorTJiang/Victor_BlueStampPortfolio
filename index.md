@@ -27,6 +27,15 @@ The layout of the wires and components is similar to that of the 2 wheel drive b
 ![Headstone Image](fourwheeldrivepic.png)
 
 Figure 1: A picture of the final body of the car. 
+
+## Challenges
+This was the most difficult milestone by far. When I first built the 4 wheel drive chassis, I had one L298N motor driver controlling all 4 motors. This was not a good decision, as the driver did not function properly and was overworked from being attached to 4 motors. I replaced it 2 L9110 motor drivers, which solved that problem but caused many other issues. When I tried to manually move the robot through preset instructions, the front right wheel would perform properly when told to move forwards but would freeze when told to move backwards. I tried multiple hardware fixes, including replacing the motor driver, replacing the motor, replacing the battery, and even rewiring the driver to different slots on the Arduino. When none of these resolved the issue, I realized it was a software problem. I checked my code, and found that I had a typo in my setup function that stopped the motor from turning backwards. 
+
+Another problem I had was with the IR remote. Although the button presses were registering and the signal was being transmitted to the Arduino, there was no movement in the motors. I printed out the decoded signal, and found out that it was returning 0 (or error) for each button press after the first one. The program works by comparing the raw signal received to a list of signals, matching it, and then telling the car to move accordingly. That means that although the signal was being sent to the Arduino, it was not getting matched up with an action. I created another sketch that returned the raw value of the signal, and fixed my original code by replacing the values the signals were being compared to with the values that I got from the other sketch. The signals were now being properly matched, and the problem was fixed. 
+
+## What I Learned
+Over the course of the camp, I gained a lot of knowledge and learned many important lessons. First, I learned about electrical engineering, including the basics of soldering and how components such as resistors work. I used that information to successfully complete my starter project. Second, I also learned how to program Arduinos and its components. This was the basis of my actual project, as I had to implement and code multiple different parts to end up with a functioning robot. Lastly and most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
+
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
