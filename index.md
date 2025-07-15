@@ -15,20 +15,23 @@ Self-piloting cars are the future of transportation, and are already being imple
 
 ![Headstone Image](Headshot.png)
   
-<!-- # Final Milestone
+# Final Milestone
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7szSlxqjNI4?si=QJAD192xvliJND-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+## Summary
+For my final milestone, I transferred all components of the robot from a two wheel base to a four wheel drive chassis. This solves the previous problem of the robot not driving straight: with only two wheels it is easy to notice the different in motor speeds, but with four the difference is negligible. In addition, with four wheels, the robot now goes much faster than before. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+## Technical Breakdown
+The layout of the wires and components is similar to that of the two wheel drive base. The main difference is that there are now four TT motors and 2 L9110 motor drivers, with each driver controlling two motors. 
 
-For your final milestone, explain the outcome of your project. Key details to include are:
+<!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+- What you hope to learn in the future after everything you've learned at BSE -->
 
 
--->
+
 # Second Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cNyybMMJYjY?si=IBDuVa3nuL4FwkQV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
