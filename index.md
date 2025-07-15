@@ -25,7 +25,7 @@ For my final milestone, I transferred all components of the robot from a two whe
 The layout of the wires and components is similar to that of the 2 wheel drive base. The main difference is that there are now 4 TT motors and 2 L9110 motor drivers, with each driver controlling two motors. The 9V battery that used to power both the Arduino and motor driver no longer provides enough charge to power 2 motor drivers, so they are now powered using a 5 pack of 1.5V AA batteries. 
 
 ![Headstone Image](fourwheeldrivepic.png)
-Figure x: A picture of the final body of the car. 
+Figure 1: A picture of the final body of the car. 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
@@ -49,11 +49,11 @@ The most important part of this milestone was the IR remote controller. It sends
 
 ![Headstone Image](twowheeldrivecirccuiting.png)
 
-Figure x: The final wiring diagram of the robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
+Figure 2 The final wiring diagram of the two wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
 
 ![Headstone Image](ir_remote.png)
 
-Figure x: The remote controller used to control the movements of the car. 
+Figure 3: The remote controller used to control the movements of the car. 
 +, -: increase and decrease speed
 1, 3: turn forwards left and forwards right
 2: go forwards
@@ -67,7 +67,7 @@ EQ: hand following mode
 
 ![Headstone Image](twowheeldriverendition.png)
 
-Figure x: The robot at the time of the second milestone
+Figure 4: The robot at the time of the second milestone
 
 ## Challenges
 There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin, and resolved it after replacing the motor driver. 
@@ -92,7 +92,7 @@ A 9V battery acts as the power source of the car, and is plugged into the Arduin
 
 ![Headstone Image](basictwowiringdrivecircuiting.png)
 
-Figure x: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
+Figure 5: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
 
 ## Challenges
 The assembly of the robot car went along smoothly, but the robot would not move. I originally thought it was a wiring problem, but after redoing the wiring it still would not move. I then noticed that the Arduino itself was not recieving power, so I swapped out the battery. When that still did not resolve the issue, I discovered that the problem was with the adapter. After replacing it the car functioned properly. 
@@ -103,11 +103,16 @@ For my next steps, I will continue to develop the functions of the robot and inc
 <!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+<!--Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.-->
+![Headstone Image](fourwheeldrivewirestuff.png)
+
+Figure 6: 
+This is the final wiring of the 4 wheel drive robot. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor drivers to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The gold wire connects the line tracking module to the Arduino. The brown wires connect the motor drivers to the 5xAA battery pack. 
+
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
+<!--Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. -->
+Final rendition of the code pushed onto the robot that allows me to control it with IR remote button presses
 ```c++
 #include <IRremote.h>
 
@@ -481,8 +486,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Kit | A kit containing all the componenets required for the base project | $59.99 | <a href="https://www.amazon.com/dp/B0B778L1DZ?&linkCode=sl1&tag=sunfounder03-20&linkId=6e7fba81fb2756b979943c012bd5534f&language=en_US&ref_=as_li_ss_tl"> Link </a> |
-| MPU 6050 Accelerometer | A part that helps the robot move straight | $6.99 | <a href="https://www.amazon.com/HiLetgo-MPU-6050-Accelerometer-Gyroscope-Converter/dp/B01DK83ZYQ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&smid=A30QSGOJR8LMXA&th=1"> Link </a> |
+| Kit | A kit containing all the componenets required for the base project and two wheel drive chassis | $59.99 | <a href="https://www.amazon.com/dp/B0B778L1DZ?&linkCode=sl1&tag=sunfounder03-20&linkId=6e7fba81fb2756b979943c012bd5534f&language=en_US&ref_=as_li_ss_tl"> Link </a> |
 | Four Wheel Drive Chassis | A chassis with four wheels instead of two | $19.99 | <a href="https://www.amazon.com/dp/B07DNXBFQN?ref=fed_asin_title&th=1"> Link </a> |
 | L9110 Motor Driver | An additional motor drive to operate the other 2 wheels | $6.45 | <a href="https://shop.barnabasrobotics.com/products/l9110s-dual-dc-driver-and-stepper-driver-board?variant=32688609263709&country=US&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AfmBOoqRC9t3xj7ZfaZf13zgFNdjdNwvB9EqRLH-A-V_WblX0sC_o1M5DXs&gQT=2"> Link </a> |
 
@@ -504,7 +508,7 @@ I enjoy playing arcade games, so I thought it would be nice to have a portable o
 
 ![Headstone Image](diagramArcade.png)
 
-Figure x: A picture showing the retro arcade console with labeled components. 
+Figure 7: A picture showing the retro arcade console with labeled components. 
 
 ## Components Used
  - Buzzer
