@@ -25,6 +25,7 @@ For my final milestone, I transferred all components of the robot from a two whe
 The layout of the wires and components is similar to that of the 2 wheel drive base. The main difference is that there are now 4 TT motors and 2 L9110 motor drivers, with each driver controlling two motors. The 9V battery that used to power both the Arduino and motor driver no longer provides enough charge to power 2 motor drivers, so they are now powered using a 5 pack of 1.5V AA batteries. 
 
 ![Headstone Image](fourwheeldrivepic.png)
+
 Figure 1: A picture of the final body of the car. 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
