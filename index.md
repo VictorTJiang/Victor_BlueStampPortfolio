@@ -99,22 +99,376 @@ For my next steps, I will continue to develop the functions of the robot and inc
 
 <!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
-<!--# Schematics 
+# Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
+#include <IRremote.h>
+
+const int IR_RECEIVE_PIN = 12;
+
+const int fB_1A = 10;
+const int fB_1B = 9;
+const int fA_1A = 6;
+const int fA_1B = 5;
+
+const int bB_1A = A3;
+const int bB_1B = A2;
+const int bA_1A = A0;
+const int bA_1B = A1;
+
+const int echoPin = 4;
+const int trigPin = 13;
+
+const int rightIR = 7;
+const int leftIR = 8;
+
+const int lineTrackPin = 2;
+
+int speed = 150;
+String flag = "NONE";
+
+unsigned long lastRawValue = 0;
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println("Hello World!");
+
+  //motor
+  pinMode(fB_1A, OUTPUT);
+  pinMode(fB_1B, OUTPUT);
+  pinMode(fA_1A, OUTPUT);
+  pinMode(fA_1B, OUTPUT);
+  pinMode(bB_1A, OUTPUT);
+  pinMode(bB_1B, OUTPUT);
+  pinMode(bA_1A, OUTPUT);
+  pinMode(bA_1B, OUTPUT);
+
+  //ultrasonic
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
+
+  //IR obstacle
+  pinMode(leftIR, INPUT);
+  pinMode(rightIR, INPUT);
+
+  //Line Track Module
+  pinMode(lineTrackPin, INPUT);
+
+  //IR remote
+  IrReceiver.begin(IR_RECEIVE_PIN);
+  Serial.println("REMOTE CONTROL START");
+
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+ void loop() {
+  if (IrReceiver.decode()) {
+    unsigned long rawValue;
+    if (IrReceiver.decodedIRData.flags & IRDATA_FLAGS_IS_REPEAT) {
+      rawValue = lastRawValue;
+    } else {
+      rawValue = IrReceiver.decodedIRData.decodedRawData;
+      lastRawValue = rawValue;
+    }
 
+    String key = decodeRawValue(rawValue);
+    if (key != "ERROR") {
+      if (key == "+") {
+        speed += 50;
+        Serial.println(speed);
+      } else if (key == "-") {
+        speed -= 50;
+        Serial.println(speed);
+      } else if (key == "2") {
+        moveForward(speed);
+        delay(1000);
+      } else if (key == "1") {
+        moveLeft(speed);
+      } else if (key == "3") {
+        moveRight(speed);
+      } else if (key == "4") {
+        turnLeft(speed);
+      } else if (key == "6") {
+        turnRight(speed);
+      } else if (key == "7") {
+        backLeft(speed);
+      } else if (key == "9") {
+        backRight(speed);
+      } else if (key == "8") {
+        moveBackward(speed);
+        delay(1000);
+      } else if (key == "CYCLE") {
+        flag = "LINE";
+      } else if (key == "U/SD") {
+        flag = "AUTO";
+      } else if (key == "0") {
+        flag = "NONE";
+        stopMove();
+      } else if (key == "FORWARD") {
+        flag = "ULTR";
+      } else if (key == "BACKWARD") {
+        flag = "IROB";
+      } else if (key == "EQ") {
+        flag = "FOLW";
+      }
+
+      if (speed > 255) speed = 255;
+      if (speed < 0) speed = 0;
+
+      delay(500);
+      stopMove();
+    }
+  IrReceiver.resume();
+  }
+}
+
+
+String decodeRawValue(unsigned long rawValue) {
+  switch(rawValue) {
+    case 0xE916FF00:
+      return "0";
+    case 0xF30CFF00:
+      return "1"; 
+    case 0xE718FF00:
+      return "2"; 
+    case 0xA15EFF00:
+      return "3"; 
+    case 0xF708FF00:
+      return "4"; 
+    case 0xE31CFF00:
+      return "5"; 
+    case 0xA55AFF00:
+      return "6"; 
+    case 0xBD42FF00:
+      return "7"; 
+    case 0xAD52FF00:
+      return "8"; 
+    case 0xB54AFF00:
+      return "9"; 
+    case 0xF609FF00:
+      return "+"; 
+    case 0xEA15FF00:
+      return "-"; 
+    case 0xF807FF00:
+      return "EQ"; 
+    case 0xF20DFF00:
+      return "U/SD";
+    case 0xE619FF00:
+      return "CYCLE";         
+    case 0xBB44FF00:
+      return "PLAY/PAUSE";   
+    case 0xBC43FF00:
+      return "FORWARD";   
+    case 0xBF40FF00:
+      return "BACKWARD";   
+    case 0xBA45FF00:
+      return "POWER";   
+    case 0x47:
+      return "0xB847FF00";   
+    case 0xB946FF00:
+      return "MODE";       
+    case 0x0:
+      return "ERROR";   
+    default :
+      return "ERROR";
+  }
+}
+
+
+float readSensorData() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  float distance = pulseIn(echoPin, HIGH) / 58.00;  //Equivalent to (340m/s*1us)/2
+  return distance;
+}
+
+void moveForward(int speed) {
+  Serial.println("moveForward() triggered");
+  Serial.print("Speed: ");
+  Serial.println(speed);
+
+  analogWrite(fA_1B, speed);
+  analogWrite(fA_1A, 0);
+  analogWrite(fB_1B, 0);
+  analogWrite(fB_1A, speed);
+  analogWrite(bA_1B, speed);
+  analogWrite(bA_1A, 0);
+  analogWrite(bB_1B, 0);
+  analogWrite(bB_1A, speed);
+}
+
+void moveBackward(int speed) {
+  analogWrite(fA_1B, 0);
+  analogWrite(fA_1A, speed);
+  analogWrite(fB_1B, speed);
+  analogWrite(fB_1A, 0);
+  analogWrite(bA_1B, 0);
+  analogWrite(bA_1A, speed);
+  analogWrite(bB_1B, speed);
+  analogWrite(bB_1A, 0);
+}
+
+void turnRight(int speed) {
+  analogWrite(fA_1B, 0);
+  analogWrite(fA_1A, speed);
+  analogWrite(fB_1B, 0);
+  analogWrite(fB_1A, speed);
+  analogWrite(bA_1B, 0);
+  analogWrite(bA_1A, speed);
+  analogWrite(bB_1B, 0);
+  analogWrite(bB_1A, speed);
+}
+
+void turnLeft(int speed) {
+  analogWrite(fA_1B, speed);
+  analogWrite(fA_1A, 0);
+  analogWrite(fB_1B, speed);
+  analogWrite(fB_1A, 0);
+  analogWrite(bA_1B, speed);
+  analogWrite(bA_1A, 0);
+  analogWrite(bB_1B, speed);
+  analogWrite(bB_1A, 0);
+}
+
+void moveLeft(int speed) {
+  analogWrite(fA_1B, speed);
+  analogWrite(fA_1A, 0);
+  analogWrite(fB_1B, 0);
+  analogWrite(fB_1A, 75);
+  analogWrite(bA_1B, speed);
+  analogWrite(bA_1A, 0);
+  analogWrite(bB_1B, speed);
+  analogWrite(bB_1A, 0);
+}
+
+void moveRight(int speed) {
+  analogWrite(fA_1B, speed);
+  analogWrite(fA_1A, 0);
+  analogWrite(fB_1B, 0);
+  analogWrite(fB_1A, speed);
+  analogWrite(bA_1B, 0);
+  analogWrite(bA_1A, speed);
+  analogWrite(bB_1B, 0);
+  analogWrite(bB_1A, speed);
+}
+
+void backLeft(int speed) {
+  analogWrite(fA_1B, 0);
+  analogWrite(fA_1A, speed);
+  analogWrite(fB_1B, 0);
+  analogWrite(fB_1A, 0);
+  analogWrite(bA_1B, 0);
+  analogWrite(bA_1A, speed);
+  analogWrite(bB_1B, speed);
+  analogWrite(bB_1A, 0);
+}
+
+void backRight(int speed) {
+  analogWrite(fA_1B, 0);
+  analogWrite(fA_1A, 0);
+  analogWrite(fB_1B, speed);
+  analogWrite(fB_1A, 0);
+  analogWrite(bA_1B, 0);
+  analogWrite(bA_1A, speed);
+  analogWrite(bB_1B, speed);
+  analogWrite(bB_1A, 0);
+}
+
+void stopMove() {
+  digitalWrite(fA_1B, LOW);
+  digitalWrite(fA_1A, LOW);
+  digitalWrite(fB_1B, LOW);
+  digitalWrite(fB_1A, LOW);
+  digitalWrite(bA_1B, LOW);
+  digitalWrite(bA_1A, LOW);
+  digitalWrite(bB_1B, LOW);
+  digitalWrite(bB_1A, LOW);
+}
+
+void AutoDrive(int speed) {
+  int left = digitalRead(leftIR);  // 0: Obstructed   1: Empty
+  int right = digitalRead(rightIR);
+
+  if (!left && right) {
+    backLeft(speed);
+  } else if (left && !right) {
+    backRight(speed);
+  } else if (!left && !right) {
+    moveBackward(speed);
+  } else {
+    float distance = readSensorData();
+    Serial.println(distance);
+    if (distance > 50) {  // Safe
+      moveForward(200);
+    } else if (distance < 10 && distance > 2) {  // Attention
+      moveBackward(200);
+      delay(1000);
+      backLeft(150);
+      delay(500);
+    } else {
+      moveForward(150);
+    }
+  }
+}
+
+void following(int speed) {
+  float distance = readSensorData();
+
+  int left = digitalRead(leftIR);  // 0: Obstructed   1: Empty
+  int right = digitalRead(rightIR);
+
+  if (distance > 5 && distance < 10) {
+    moveForward(speed);
+  }
+  if (!left && right) {
+    turnLeft(speed);
+  } else if (left && !right) {
+    turnRight(speed);
+  } else {
+    stopMove();
+  }
+}
+
+void lineTrack(int speed) {
+  int lineColor = digitalRead(lineTrackPin);  // 0:white  1:black
+  Serial.println(lineColor);
+  if (lineColor) {
+    moveLeft(speed);
+  } else {
+    moveRight(speed);
+  }
+}
+
+void irobstacleExample(int speed) {
+  int left = digitalRead(leftIR);  // 0: Obstructed   1: Empty
+  int right = digitalRead(rightIR);
+
+  if (!left && right) {
+    backLeft(speed);
+  } else if (left && !right) {
+    backRight(speed);
+  } else if (!left && !right) {
+    moveBackward(speed);
+  } else {
+    stopMove();
+  }
+}
+
+void ultrasonicExample(int speed) {
+  float distance = readSensorData();
+  Serial.println(distance);
+  if (distance > 25) {
+    moveForward(speed);
+  } else if (distance < 10 && distance > 2) {
+    moveBackward(speed);
+  } else {
+    stopMove();
+  }
 }
 ```
 
