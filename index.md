@@ -138,25 +138,27 @@ Final rendition of the code pushed onto the robot that allows me to control it w
 
 const int IR_RECEIVE_PIN = 12;
 
-const int fB_1A = 10;
-const int fB_1B = 9;
-const int fA_1A = 6;
-const int fA_1B = 5;
+const int lin1 = 2;
+const int lin2 = 3;
+const int lin3 = 4;
+const int lin4 = 5;
+const int len = 9;
 
-const int bB_1A = A3;
-const int bB_1B = A2;
-const int bA_1A = A0;
-const int bA_1B = A1;
+const int rin1 = 6;
+const int rin2 = 7;
+const int rin3 = 8;
+const int rin4 = 11;
+const int ren = 10;
 
-const int echoPin = 4;
-const int trigPin = 13;
+const int echoPin = A1;
+const int trigPin = A2;
 
-const int rightIR = 7;
-const int leftIR = 8;
+const int rightIR = A3;
+const int leftIR = A4;
 
-const int lineTrackPin = 2;
+const int lineTrackPin = A5;
 
-int speed = 150;
+int speed = 200;
 String flag = "NONE";
 
 unsigned long lastRawValue = 0;
@@ -165,14 +167,16 @@ void setup() {
   Serial.begin(9600);
 
   //motor
-  pinMode(fB_1A, OUTPUT);
-  pinMode(fB_1B, OUTPUT);
-  pinMode(fA_1A, OUTPUT);
-  pinMode(fA_1B, OUTPUT);
-  pinMode(bB_1A, OUTPUT);
-  pinMode(bB_1B, OUTPUT);
-  pinMode(bA_1A, OUTPUT);
-  pinMode(bA_1B, OUTPUT);
+  pinMode(lin1, OUTPUT);
+  pinMode(lin2, OUTPUT);
+  pinMode(lin3, OUTPUT);
+  pinMode(lin4, OUTPUT);
+  pinMode(rin1, OUTPUT);
+  pinMode(rin2, OUTPUT);
+  pinMode(rin3, OUTPUT);
+  pinMode(rin4, OUTPUT);
+  pinMode(len, OUTPUT);
+  pinMode(ren, OUTPUT);
 
   //ultrasonic
   pinMode(echoPin, INPUT);
@@ -186,9 +190,7 @@ void setup() {
   pinMode(lineTrackPin, INPUT);
 
   //IR remote
-  IrReceiver.begin(IR_RECEIVE_PIN);
-  Serial.println("REMOTE CONTROL START");
-
+  IrReceiver.begin(IR_RECEIVE_PIN, ENABLE_LED_FEEDBACK);
 }
 
  void loop() {
@@ -200,7 +202,6 @@ void setup() {
       rawValue = IrReceiver.decodedIRData.decodedRawData;
       lastRawValue = rawValue;
     }
-
     String key = decodeRawValue(rawValue);
     if (key != "ERROR") {
       if (key == "+") {
@@ -243,12 +244,25 @@ void setup() {
       }
 
       if (speed > 255) speed = 255;
-      if (speed < 0) speed = 0;
+      if (speed < 150) speed = 150;
 
       delay(500);
       stopMove();
     }
-  IrReceiver.resume();
+    IrReceiver.resume();
+    if (flag == "AUTO") {
+      while(true) {
+        AutoDrive(speed);
+      }
+    } else if (flag == "LINE") {
+      lineTrack(speed);
+    } else if (flag == "ULTR") {
+      ultrasonicExample(speed);
+    } else if (flag == "IROB") {
+      irobstacleExample(speed);
+    } else if (flag == "FOLW") {
+      following(speed);
+    }
   }
 }
 
@@ -293,8 +307,8 @@ String decodeRawValue(unsigned long rawValue) {
       return "BACKWARD";   
     case 0xBA45FF00:
       return "POWER";   
-    case 0x47:
-      return "0xB847FF00";   
+    case 0xB847FF00:
+      return "MUTE";   
     case 0xB946FF00:
       return "MODE";       
     case 0x0:
@@ -316,106 +330,120 @@ float readSensorData() {
 }
 
 void moveForward(int speed) {
-  Serial.println("moveForward() triggered");
-  Serial.print("Speed: ");
-  Serial.println(speed);
-
-  analogWrite(fA_1B, speed);
-  analogWrite(fA_1A, 0);
-  analogWrite(fB_1B, 0);
-  analogWrite(fB_1A, speed);
-  analogWrite(bA_1B, speed);
-  analogWrite(bA_1A, 0);
-  analogWrite(bB_1B, 0);
-  analogWrite(bB_1A, speed);
+  digitalWrite(lin1, HIGH);
+  digitalWrite(lin2, LOW);
+  digitalWrite(lin3, HIGH);
+  digitalWrite(lin4, LOW);
+  digitalWrite(rin1, LOW);
+  digitalWrite(rin2, HIGH);
+  digitalWrite(rin3, LOW);
+  digitalWrite(rin4, HIGH);
+  analogWrite(len, speed);
+  analogWrite(ren, speed);
 }
 
 void moveBackward(int speed) {
-  analogWrite(fA_1B, 0);
-  analogWrite(fA_1A, speed);
-  analogWrite(fB_1B, speed);
-  analogWrite(fB_1A, 0);
-  analogWrite(bA_1B, 0);
-  analogWrite(bA_1A, speed);
-  analogWrite(bB_1B, speed);
-  analogWrite(bB_1A, 0);
-}
-
-void turnRight(int speed) {
-  analogWrite(fA_1B, 0);
-  analogWrite(fA_1A, speed);
-  analogWrite(fB_1B, 0);
-  analogWrite(fB_1A, speed);
-  analogWrite(bA_1B, 0);
-  analogWrite(bA_1A, speed);
-  analogWrite(bB_1B, 0);
-  analogWrite(bB_1A, speed);
-}
-
-void turnLeft(int speed) {
-  analogWrite(fA_1B, speed);
-  analogWrite(fA_1A, 0);
-  analogWrite(fB_1B, speed);
-  analogWrite(fB_1A, 0);
-  analogWrite(bA_1B, speed);
-  analogWrite(bA_1A, 0);
-  analogWrite(bB_1B, speed);
-  analogWrite(bB_1A, 0);
+  digitalWrite(lin1, LOW);
+  digitalWrite(lin2, HIGH);
+  digitalWrite(lin3, LOW);
+  digitalWrite(lin4, HIGH);
+  digitalWrite(rin1, HIGH);
+  digitalWrite(rin2, LOW);
+  digitalWrite(rin3, HIGH);
+  digitalWrite(rin4, LOW);
+  analogWrite(len, speed);
+  analogWrite(ren, speed);
 }
 
 void moveLeft(int speed) {
-  analogWrite(fA_1B, speed);
-  analogWrite(fA_1A, 0);
-  analogWrite(fB_1B, 0);
-  analogWrite(fB_1A, 75);
-  analogWrite(bA_1B, speed);
-  analogWrite(bA_1A, 0);
-  analogWrite(bB_1B, speed);
-  analogWrite(bB_1A, 0);
+  digitalWrite(lin1, HIGH);
+  digitalWrite(lin2, LOW);
+  digitalWrite(lin3, HIGH);
+  digitalWrite(lin4, LOW);
+  digitalWrite(rin1, LOW);
+  digitalWrite(rin2, HIGH);
+  digitalWrite(rin3, LOW);
+  digitalWrite(rin4, HIGH);
+  analogWrite(len, 150);
+  analogWrite(ren, speed);
 }
 
 void moveRight(int speed) {
-  analogWrite(fA_1B, speed);
-  analogWrite(fA_1A, 0);
-  analogWrite(fB_1B, 0);
-  analogWrite(fB_1A, speed);
-  analogWrite(bA_1B, 0);
-  analogWrite(bA_1A, speed);
-  analogWrite(bB_1B, 0);
-  analogWrite(bB_1A, speed);
+  digitalWrite(lin1, HIGH);
+  digitalWrite(lin2, LOW);
+  digitalWrite(lin3, HIGH);
+  digitalWrite(lin4, LOW);
+  digitalWrite(rin1, LOW);
+  digitalWrite(rin2, HIGH);
+  digitalWrite(rin3, LOW);
+  digitalWrite(rin4, HIGH);
+  analogWrite(len, speed);
+  analogWrite(ren, 150);
+}
+
+void turnLeft(int speed) {
+  digitalWrite(lin1, LOW);
+  digitalWrite(lin2, HIGH);
+  digitalWrite(lin3, LOW);
+  digitalWrite(lin4, HIGH);
+  digitalWrite(rin1, LOW);
+  digitalWrite(rin2, HIGH);
+  digitalWrite(rin3, LOW);
+  digitalWrite(rin4, HIGH);
+  analogWrite(len, speed);
+  analogWrite(ren, speed);
+}
+
+void turnRight(int speed) {
+  digitalWrite(lin1, HIGH);
+  digitalWrite(lin2, LOW);
+  digitalWrite(lin3, HIGH);
+  digitalWrite(lin4, LOW);
+  digitalWrite(rin1, HIGH);
+  digitalWrite(rin2, LOW);
+  digitalWrite(rin3, HIGH);
+  digitalWrite(rin4, LOW);
+  analogWrite(len, speed);
+  analogWrite(ren, speed);
 }
 
 void backLeft(int speed) {
-  analogWrite(fA_1B, 0);
-  analogWrite(fA_1A, speed);
-  analogWrite(fB_1B, 0);
-  analogWrite(fB_1A, 0);
-  analogWrite(bA_1B, 0);
-  analogWrite(bA_1A, speed);
-  analogWrite(bB_1B, speed);
-  analogWrite(bB_1A, 0);
+  digitalWrite(lin1, LOW);
+  digitalWrite(lin2, HIGH);
+  digitalWrite(lin3, LOW);
+  digitalWrite(lin4, HIGH);
+  digitalWrite(rin1, HIGH);
+  digitalWrite(rin2, LOW);
+  digitalWrite(rin3, HIGH);
+  digitalWrite(rin4, LOW);
+  analogWrite(len, 100);
+  analogWrite(ren, speed);
 }
 
 void backRight(int speed) {
-  analogWrite(fA_1B, 0);
-  analogWrite(fA_1A, 0);
-  analogWrite(fB_1B, speed);
-  analogWrite(fB_1A, 0);
-  analogWrite(bA_1B, 0);
-  analogWrite(bA_1A, speed);
-  analogWrite(bB_1B, speed);
-  analogWrite(bB_1A, 0);
+  digitalWrite(lin1, LOW);
+  digitalWrite(lin2, HIGH);
+  digitalWrite(lin3, LOW);
+  digitalWrite(lin4, HIGH);
+  digitalWrite(rin1, HIGH);
+  digitalWrite(rin2, LOW);
+  digitalWrite(rin3, HIGH);
+  digitalWrite(rin4, LOW);
+  analogWrite(len, speed);
+  analogWrite(ren, 100);
 }
 
 void stopMove() {
-  digitalWrite(fA_1B, LOW);
-  digitalWrite(fA_1A, LOW);
-  digitalWrite(fB_1B, LOW);
-  digitalWrite(fB_1A, LOW);
-  digitalWrite(bA_1B, LOW);
-  digitalWrite(bA_1A, LOW);
-  digitalWrite(bB_1B, LOW);
-  digitalWrite(bB_1A, LOW);
+  digitalWrite(lin1, LOW);
+  digitalWrite(lin2, LOW);
+  digitalWrite(lin3, LOW);
+  digitalWrite(lin4, LOW);
+  digitalWrite(rin1, LOW);
+  digitalWrite(rin2, LOW);
+  digitalWrite(rin3, LOW);
+  digitalWrite(rin4, LOW);
+  analogWrite(len, 0);
+  analogWrite(ren, 0);
 }
 
 void AutoDrive(int speed) {
@@ -423,21 +451,28 @@ void AutoDrive(int speed) {
   int right = digitalRead(rightIR);
 
   if (!left && right) {
-    backLeft(speed);
+    moveBackward(200);
+    delay(1000);
+    turnRight(200);
+    delay(300);
   } else if (left && !right) {
-    backRight(speed);
+    moveBackward(200);
+    delay(1000);
+    turnLeft(200);
+    delay(300);
   } else if (!left && !right) {
-    moveBackward(speed);
+    moveBackward(200);
+    delay(2000);
   } else {
     float distance = readSensorData();
     Serial.println(distance);
     if (distance > 50) {  // Safe
       moveForward(200);
-    } else if (distance < 10 && distance > 2) {  // Attention
+    } else if (distance < 20 && distance > 2) {  // Attention
       moveBackward(200);
       delay(1000);
-      backLeft(150);
-      delay(500);
+      turnLeft(200);
+      delay(1000);
     } else {
       moveForward(150);
     }
