@@ -26,7 +26,7 @@ The layout of the wires and components is similar to that of the 2-wheel drive b
 
 ![Headstone Image](carapace.png)
 
-Figure 1: A picture of the final body of the car with the carapace on. 
+Figure 1: A picture of the final body of the 4-wheel drive car with the carapace on. 
 
 ## Challenges
 This was the most difficult milestone by far. When I first built the 4-wheel drive base, I had one L298N motor driver controlling all four motors. This overworked the driver, and caused it to malfunction. That problem was resolved by replacing the L298N with two L9110 motor drivers, but the L9110s started overheating and smoking. This is because they lack a key component called the heat sink that the L298N possesses. The heat sink disperses the heat and prevents the motor driver from overheating. I replaced the two L9110s with two L298Ns, which fixed the problem. 
@@ -115,7 +115,7 @@ The most important part of this milestone was the IR remote controller. It sends
 ![Headstone Image](twowheeldrivecirccuiting.png)
 
 Figure 2: The final wiring diagram of the 2-wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
-
+ 
 ![Headstone Image](ir_remote.png)
 
 Figure 3: The IR remote used to control the movements of the car. 
