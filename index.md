@@ -89,7 +89,7 @@ String decodeRawValue(unsigned long rawValue) {
 ```
 
 ## What I Learned
-Over the course of the camp, I gained a lot of knowledge and learned many important lessons. First, I learned about soldering and how electricity worked. I used this information to complete my starter project, as well as wire my robot car. I learned about how this all connected to Arduinos and motors, and helped me implement and code multiple different parts to end up with a functioning robot. Lastly and most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
+I learned about soldering and how electricity worked. I used this information to complete my starter project, as well as wire my robot car. I learned about how this all connected to Arduinos and motors, and helped me implement and code multiple different parts to end up with a functioning robot. Most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
