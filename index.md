@@ -31,12 +31,65 @@ Figure 1: A picture of the final body of the car with the shell on.
 ## Challenges
 This was the most difficult milestone by far. When I first built the 4 wheel drive chassis, I had one L298N motor driver controlling all 4 motors. This was not a good decision, as the driver did not function properly and was overworked from being attached to 4 motors. I replaced it 2 L9110 motor drivers, which solved that problem but caused many other issues. When I tried to manually move the robot through preset instructions, the front right wheel would perform properly when told to move forwards but would freeze when told to move backwards. I tried multiple hardware fixes, including replacing the motor driver, replacing the motor, replacing the battery, and even rewiring the driver to different slots on the Arduino. When none of these resolved the issue, I realized it was a software problem. I checked my code, and found that I had a typo in my setup function that stopped the motor from turning backwards. 
 
-Another problem I had was with the IR remote. Although the button presses were registering and the signal was being transmitted to the Arduino, there was no movement in the motors. I printed out the decoded signal, and found out that it was returning 0 (or error) for each button press after the first one. The program works by comparing the raw signal received to a list of signals, matching it, and then telling the car to move accordingly. That means that although the signal was being sent to the Arduino, it was not getting matched up with an action. I created another sketch that returned the raw value of the signal, and fixed my original code by replacing the values the signals were being compared to with the values that I got from the other sketch. The signals were now being properly matched, and the problem was fixed. 
+```c++
+String decodeRawValue(unsigned long rawValue) {
+  switch(rawValue) {
+    case 0xE916FF00:
+      return "0";
+    case 0xF30CFF00:
+      return "1"; 
+    case 0xE718FF00:
+      return "2"; 
+    case 0xA15EFF00:
+      return "3"; 
+    case 0xF708FF00:
+      return "4"; 
+    case 0xE31CFF00:
+      return "5"; 
+    case 0xA55AFF00:
+      return "6"; 
+    case 0xBD42FF00:
+      return "7"; 
+    case 0xAD52FF00:
+      return "8"; 
+    case 0xB54AFF00:
+      return "9"; 
+    case 0xF609FF00:
+      return "+"; 
+    case 0xEA15FF00:
+      return "-"; 
+    case 0xF807FF00:
+      return "EQ"; 
+    case 0xF20DFF00:
+      return "U/SD";
+    case 0xE619FF00:
+      return "CYCLE";         
+    case 0xBB44FF00:
+      return "PLAY/PAUSE";   
+    case 0xBC43FF00:
+      return "FORWARD";   
+    case 0xBF40FF00:
+      return "BACKWARD";   
+    case 0xBA45FF00:
+      return "POWER";   
+    case 0xB847FF00:
+      return "MUTE";   
+    case 0xB946FF00:
+      return "MODE";       
+    case 0x0:
+      return "ERROR";   
+    default :
+      return "ERROR";
+  }
+}
+```
 
-Lastly, there was an issue with the motor drivers overheating and smoking. I originally had 2 L9110 motor drivers controlling the 4 motors, but they only worked for a brief period of time before they started smoking. To fix this problem, I replaced the L9110 motor drivers with L298N motor drivers. The L298N drivers were much higher quality and more heavy duty, so they were able to properly help move the robot without breaking. 
+Another problem I had was with the IR remote. Each button on the remote sends a different encoded signal to the IR receiver on the bread board, and that signal is then sent to the Arduino Uno. The signal is decoded using the code above: the function decodeRawValue matches the encoded signal to each "case". If the raw signal and the case are the same, the function returns a number that tells the robot to perform a certain action. I had a problem where even though the signal was reaching the Arduino, it was not being properly decoded. Instead of the case being a complex line of letters and numbers, it originally only consisted of a 2 digit number (ex. 0x16). I had to write a separate function that finds the actual raw signals (the cases you see above), and rewrite decodeRawValue to properly compare the incoming signal. 
+
+Lastly, there was an issue with the motor drivers. I originally had a single L298N motor driver controlling all 4 motors, but it got overworked and often malfunctioned. I replaced the single motor driver with 2 smaller L9110s, which worked for a period of time but eventually overheated and started smoking. This was because the smaller motor drivers lacked a key component that the L298N possessed, which is a heat sink that disperses the heat and prevents overheating. I replaced the 2 L9110s with 2 L298Ns, which had the heat sink and were also more heavy-duty, which resolved the issue. 
 
 ## What I Learned
-Over the course of the camp, I gained a lot of knowledge and learned many important lessons. First, I learned about electrical engineering, including the basics of soldering and how components such as resistors work. I used that information to successfully complete my starter project. Second, I also learned how to program Arduinos and its components. This was the basis of my actual project, as I had to implement and code multiple different parts to end up with a functioning robot. Lastly and most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
+Over the course of the camp, I gained a lot of knowledge and learned many important lessons. First, I learned about soldering and how electricity worked. I used this information to complete my starter project, as well as wire my robot car. I learned about how this all connected to Arduinos and motors, and helped me implement and code multiple different parts to end up with a functioning robot. Lastly and most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
