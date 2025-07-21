@@ -506,25 +506,25 @@ void AutoDrive(int speed) {
   int right = digitalRead(rightIR);
 
   if (!left && right) {
-    moveBackward(200);
+    moveBackward(150);
     delay(1000);
     turnRight(200);
     delay(300);
   } else if (left && !right) {
-    moveBackward(200);
+    moveBackward(150);
     delay(1000);
     turnLeft(200);
     delay(300);
   } else if (!left && !right) {
-    moveBackward(200);
+    moveBackward(150);
     delay(2000);
   } else {
     float distance = readSensorData();
     Serial.println(distance);
     if (distance > 50) {  // Safe
-      moveForward(200);
+      moveForward(150);
     } else if (distance < 20 && distance > 2) {  // Attention
-      moveBackward(200);
+      moveBackward(150);
       delay(1000);
       turnLeft(200);
       delay(1000);
