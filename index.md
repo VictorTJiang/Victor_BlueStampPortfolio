@@ -114,11 +114,11 @@ The most important part of this milestone was the IR remote controller. It sends
 
 ![Headstone Image](twowheeldrivecirccuiting.png)
 
-Figure 2: The final wiring diagram of the two wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
+Figure 2: The final wiring diagram of the 2-wheel drive robot implementing all components. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue and green wires connect the motor driver to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The pink and purple wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The light blue wire connects the line tracking module to the Arduino. 
 
 ![Headstone Image](ir_remote.png)
 
-Figure 3: The remote controller used to control the movements of the car. 
+Figure 3: The IR remote used to control the movements of the car. 
 
 +, -: increase and decrease speed
 
@@ -142,7 +142,7 @@ EQ: hand following mode
 
 ![Headstone Image](twowheeldriverendition.png)
 
-Figure 4: The robot at the time of the second milestone
+Figure 4: A picture of the final 2-wheel drive robot with all components. 
 
 ## Challenges
 There was a major problem with the motor driver. The motor connected to the green terminals on the right malfunctioned: it was significantly slower than the left one, and often randomly stopped working. I originally thought it might have been a problem with the motor, so I replaced it. However, when that the problem still remained unfixed, I then swapped the left and right motors. I discovered that the motor connected to the right green terminals would not properly spin, and resolved it after replacing the motor driver. 
@@ -167,7 +167,7 @@ A 9V battery acts as the power source of the car, and is plugged into the Arduin
 
 ![Headstone Image](basictwowiringdrivecircuiting.png)
 
-Figure 5: A diagram of the wiring done to allow the robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
+Figure 5: A diagram of the wiring done to allow the 2-wheel robot to move off of preset instructions. Red wires are 5V or VCC (power), and black wires are GND (ground). The blue and green wires connect the motor drive to the Arduino. 
 
 ## Challenges
 The assembly of the robot car went along smoothly, but the robot would not move. I originally thought it was a wiring problem, but after redoing the wiring it still would not move. I then noticed that the Arduino itself was not recieving power, so I swapped out the battery. When that still did not resolve the issue, I discovered that the problem was with the adapter. After replacing it the car functioned properly. 
@@ -179,10 +179,10 @@ For my next steps, I will continue to develop the functions of the robot and inc
 
 # Schematics 
 <!--Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.-->
-![Headstone Image](circuitingstufffor4wheels.png)
+![Headstone Image](circuittyertyiu.png)
 
 Figure 6: 
-This is the final wiring of the 4 wheel drive robot. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue, green and purple wires connect the motor drivers to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The dark pink wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The gold wire connects the line tracking module to the Arduino. 
+This is the final wiring of the 4-wheel drive robot. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue, green and purple wires connect the motor drivers to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The dark pink wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The gold wire connects the line tracking module to the Arduino. 
 
 
 # Code
