@@ -179,7 +179,7 @@ For my next steps, I will continue to develop the functions of the robot and inc
 
 # Schematics 
 <!--Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.-->
-![Headstone Image](circuittyertyiu.png)
+![Headstone Image](fwdc.png)
 
 Figure 6: 
 This is the final wiring of the 4-wheel drive robot. Red wires are 5V or VCC (power), and black wires are GND (ground). The dark blue, green and purple wires connect the motor drivers to the Arduino. The yellow wires connect the obstacle avoidance modules to the Arduino. The dark pink wires connect the ultrasonic sensor to the Arduino. The orange wire connects the IR sensor to the Arduino. The gold wire connects the line tracking module to the Arduino. 
