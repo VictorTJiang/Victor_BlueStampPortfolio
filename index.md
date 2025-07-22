@@ -19,21 +19,21 @@ Self-driving cars are the future of transportation, and are already being implem
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7szSlxqjNI4?si=QJAD192xvliJND-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
-For my final milestone, I transferred all components of the robot from a 2-wheel base to a 4-wheel drive base. This solves the previous problem of the robot not driving straight. With only two wheels, it is easy to notice the difference in motor speeds, but with difference is negligible with four. In addition, with four wheels, the robot now moves much faster than before. I also created a carapace for the robot using a combination of 3D printed parts and wood to ensure the wires aren't exposed. 
+For my final milestone, I transferred all components of the robot from a 2-wheel base to a 4-wheel base. This solves the previous problem of the robot not driving straight. With only two wheels, it is easy to notice the difference in motor speeds, but the difference is negligible with four. In addition, with four wheels, the robot now moves much faster than before. I also created a carapace for the robot using a combination of 3D printed parts and wood. 
 
 ## Technical Breakdown
-The layout of the wires and components is similar to that of the 2-wheel drive base. The main difference is that there are now four TT motors and two L298N motor drivers, with each driver controlling two motors. The 9V battery cannot power both motor drivers and the Arduino Uno, so the motor drivers are now powered by a 5-pack of 1.5V AA batteries. 
+The layout of the wires and components is similar to that of the 2-wheel base. The main difference is that there are now four TT motors and two L298N motor drivers, with each driver controlling two motors. Due to this change, the 9V battery can no longer sufficiently power both motor drivers and the Arduino Uno. Therefore, a pack of five 1.5V AA batteries is instead used to power the motor drivers. 
 
 ![Headstone Image](carapace.png)
 
-Figure 1: A picture of the final body of the 4-wheel drive car with the carapace on. 
+Figure 1: A picture of the 4-wheel drive robot with the carapace on. 
 
 ## Challenges
-This was the most difficult milestone by far. When I first built the 4-wheel drive base, I had one L298N motor driver controlling all four motors. This overworked the driver, and caused it to malfunction. That problem was resolved by replacing the L298N with two L9110 motor drivers, but the L9110s started overheating and smoking. This is because they lack a key component called the heat sink that the L298N possesses. The heat sink disperses the heat and prevents the motor driver from overheating. I replaced the two L9110s with two L298Ns, which fixed the problem. 
+This was the most difficult milestone by far. When I first built the 4-wheel base, I had one L298N motor driver controlling all four motors. This overworked the driver, and caused it to malfunction. That problem was resolved by replacing the L298N with two L9110 motor drivers, but then the L9110s started overheating and smoking. This is because they lack a key component called the heat sink that the L298N possesses. The heat sink disperses the heat and prevents the motor driver from overheating. I replaced the two L9110s with two L298Ns, which fixed the problem. 
 
 Another issue was that the front right wheel would freeze when instructed to move backwards. I tried multiple hardware fixes including replacing the motor driver, replacing the motor, replacing the battery, and even rewiring the driver to different slots on the Arduino. When none of these resolved the issue, I realized it was a software problem. I found a typo in my setup function that stopped the motor from turning backwards. 
 
-Lastly, the IR remote could not move the robot after switching from the 2-wheel drive to the 4-wheel drive. Each button on the remote sends an encoded signal to the IR receiver on the bread board, and that signal is then sent to the Arduino. The signal is decoded using the decodeRawValue function (see code below). The encoded signal is matched to each case. If the encoded signal and the case are the same, the function returns a number that tells the robot to perform a certain action. Originally, the cases of the 2-wheel drive are written in the format of two digit numbers (ex. 0x16). I did not realize the cases changed during the transition from 2-wheel drive to 4-wheel drive. I had to write a separate function that finds the new cases (the ones you see below) and update decodeRawValue to properly compare the encoded signal. 
+Lastly, the IR remote could not move the robot after the 2-wheel base was switched to the 4-wheel base. Each button on the remote sends an encoded signal to the IR receiver on the bread board, and that signal is then sent to the Arduino. The signal is decoded using the decodeRawValue function (see code below). The encoded signal is matched to each case. If the encoded signal and the case are the same, the function returns a number that tells the robot to perform a certain action. Originally, the cases of the 2-wheel base are written in the format of two digit numbers (ex. 0x16). I did not realize the cases changed during the transition from 2-wheel base to 4-wheel base. I had to write a separate function that finds the new cases (the ones you see below) and update decodeRawValue to properly compare the encoded signal. 
 
 ```c++
 String decodeRawValue(unsigned long rawValue) {
@@ -89,7 +89,7 @@ String decodeRawValue(unsigned long rawValue) {
 ```
 
 ## What I Learned
-I learned about soldering and how electricity worked. I used this information to complete my starter project, as well as wire my robot car. I learned about how this all connected to Arduinos and motors, and helped me implement and code multiple different parts to end up with a functioning robot. Most importantly, I learned valuable lessons on problem solving through debugging issues with my car. I learned that you should always check for basic mistakes after spending 4 hours trying to fix an error caused by a typo, and that getting frustrated does not do anything to help you fix your problems. 
+This camp was a sharp learning curve for me. I learned about the basics of electrical engineering during the starter project, including soldering and circuitry. This knowledge helped me to advance to my main project of the self-driving car. I learned how the various components, such as the ultrasonic sensors and IR sensors, worked with one another, as well as how to implement Arduino code. Most importantly, I learned valuable lessons on problem solving skills. I learned to systematically isolate and examine each component, as well as how to debug my code by looking for simple typos and logic errors. 
 
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
